@@ -10,8 +10,20 @@ describe Romit::Refund do
     end
 
     it "initialize values with amounts from API response" do
-      #token = ExampleToken.new
-      #b.select{|transfer| !transfer[:refund].empty? }.first[:refund]
+      refund_hash = {
+        refundAmount: {
+          currency: "USD",
+          value: "66.00"
+        },
+        reimburseAmount: {
+          currency: "USD",
+          value: "1.39"
+        }
+      }
+
+      refund = subject.new(refund_hash)
+      assert_equal refund.refund_amount.class, Romit::Amount
+      assert_equal refund.reimburse_amount.class, Romit::Amount
     end
   end
 end

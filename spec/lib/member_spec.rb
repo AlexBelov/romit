@@ -1,5 +1,5 @@
 require "spec_helper"
-require "romit"
+require "romit/member"
 
 describe Romit::Member do
   subject { Romit::Member.new(ExampleToken.new) }
@@ -21,7 +21,7 @@ describe Romit::Member do
   end
 
   it "returns Transfer" do
-    assert_equal subject.transfer, Romit::Transfer
+    assert_equal subject.transfer.class, Romit::Transfer
   end
 
   it "returns Identity" do

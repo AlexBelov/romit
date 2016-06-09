@@ -24,5 +24,9 @@ module Romit
     def values
       @values.values
     end
+
+    def empty?
+      @values.empty?
+    end
   end
 end

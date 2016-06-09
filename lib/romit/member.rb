@@ -1,3 +1,9 @@
+require 'romit/helpers/member_account'
+require 'romit/banking/banking'
+require 'romit/transfer/transfer'
+require 'romit/identity/identity'
+require 'romit/user'
+
 module Romit
   class Member
     attr_reader :member_account
@@ -15,7 +21,7 @@ module Romit
     end
 
     def transfer
-      Transfer
+      Transfer.new(@member_account)
     end
 
     def identity

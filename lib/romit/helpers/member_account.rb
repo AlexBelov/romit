@@ -1,4 +1,5 @@
 require 'romit/errors/configuration_error'
+require 'romit/oauth'
 
 module Romit
   class MemberAccount

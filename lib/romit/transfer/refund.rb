@@ -1,3 +1,4 @@
+require 'romit/base'
 require 'romit/amount'
 
 module Romit
@@ -19,10 +20,14 @@ module Romit
           )
         }
       end
+    end
 
-      def empty?
-        @values.empty?
-      end
+    def refund_amount
+      @values[:refund_amount]
+    end
+
+    def reimburse_amount
+      @values[:reimburse_amount]
     end
   end
 end
