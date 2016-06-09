@@ -1,0 +1,41 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.sandbox.romit.io/v1/incorrect_path
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 44f74ae8-9846-4ff5-9ade-e4566b86f96f
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Wed, 08 Jun 2016 12:17:49 GMT
+      Content-Length:
+      - '125'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":false,"error":{"code":"err.invalid_path","locale":"en-US","message":"We
+        couldn''t find that path"},"response":null}'
+    http_version: 
+  recorded_at: Wed, 08 Jun 2016 12:17:48 GMT
+recorded_with: VCR 3.0.3

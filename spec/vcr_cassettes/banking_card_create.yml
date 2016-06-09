@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sandbox.romit.io/v1/banking/card
+    body:
+      encoding: UTF-8
+      string: '{"name":"Chadd Sexington","number":"4556899287487842","month":9,"year":2017,"cvv":"947","postal":"89101"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 7eabf1fb-6cb1-405b-a756-89ede6107f6e
+      Content-Length:
+      - '105'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 09 Jun 2016 11:27:05 GMT
+      Content-Length:
+      - '86'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"error":null,"response":{"id":"aaa5f979-e932-489e-b490-2c8b7ca0b818"}}'
+    http_version: 
+  recorded_at: Thu, 09 Jun 2016 11:27:17 GMT
+recorded_with: VCR 3.0.3

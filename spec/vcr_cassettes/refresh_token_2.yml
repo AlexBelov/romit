@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sandbox.romit.io/v1/oauth/token
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"***REMOVED***","client_secret":"***REMOVED***","refresh_token":"9e1fd7e5-c7b5-40bb-8663-f762359fd985","grant_type":"refresh_token"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '191'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Thu, 09 Jun 2016 11:34:13 GMT
+      Content-Length:
+      - '408'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"error":null,"response":{"access_token":"95bb21a0-28c5-4254-a44e-04878b626e57","access_token_expires":"2016-06-09T12:34:13Z","refresh_token":"bb311cb7-6e44-47ef-9f94-8b91d64dd867","refresh_token_expires":"2016-08-08T11:34:13Z","token_type":"bearer","scope":["DEFAULT","BANKING_READ","BANKING_WRITE","IDENTITY_READ","IDENTITY_WRITE","TRANSFER_READ","TRANSFER_WRITE","USER_READ","USER_WRITE"]}}'
+    http_version: 
+  recorded_at: Thu, 09 Jun 2016 11:34:14 GMT
+recorded_with: VCR 3.0.3
