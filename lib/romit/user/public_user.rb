@@ -1,7 +1,7 @@
 module Romit
   class PublicUser < Base
     def self.get(phone)
-      resp = Client.request(:get, "/user", {}, MemberAccount.access_token)
+      resp = Client.request(:get, '/user', {}, MemberAccount.access_token)
       resp_body = Romit::Utils.handle_response(resp)
       self.new(
         level: resp_body[:level],
@@ -11,7 +11,7 @@ module Romit
     end
 
     def self.create(client_token, opts = {})
-      resp = Client.request(:post, "/user", opts, client_token)
+      resp = Client.request(:post, '/user', opts, client_token)
       resp_body = Utils.handle_response(resp)
       {
         access_token: Token.new(

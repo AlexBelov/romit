@@ -9,7 +9,7 @@ module Romit
     end
 
     def self.retrieve(romit_model)
-      resp = Romit.request(:get, "/user", {}, romit_model.current_romit_access_token)
+      resp = Romit.request(:get, '/user', {}, romit_model.current_romit_access_token)
       resp_body = resp[:response]
       self.new(
         id: resp_body[:id],

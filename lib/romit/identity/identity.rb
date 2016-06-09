@@ -1,7 +1,7 @@
 module Romit
   class Identity < Base
     def self.list
-      resp = Client.request(:get, "/identity", {}, MemberAccount.access_token)
+      resp = Client.request(:get, '/identity', {}, MemberAccount.access_token)
       resp_body = Utils.handle_response(resp)
       resp_body.map do |identity|
         self.new(
@@ -17,7 +17,7 @@ module Romit
       when :document
         IdentityDocument.get(@values[:id])
       else
-        "Sorry, this type is not implemented yet"
+        'Sorry, this type is not implemented yet'
       end
     end
   end

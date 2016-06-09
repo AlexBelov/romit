@@ -10,7 +10,7 @@ module Romit
     end
 
     def list
-      resp = Client.request(:get, "/transfer", {}, @member_account.access_token)
+      resp = Client.request(:get, '/transfer', {}, @member_account.access_token)
       resp_body = Utils.handle_response(resp)
       resp_body.map{|transfer| handle_transfer(transfer)}
     end
@@ -28,7 +28,7 @@ module Romit
     end
 
     def create(opts = {})
-      resp = Client.request(:post, "/transfer", opts, @member_account.access_token)
+      resp = Client.request(:post, '/transfer', opts, @member_account.access_token)
       resp_body = Utils.handle_response(resp)
       TransferItem.new(
         @member_account,

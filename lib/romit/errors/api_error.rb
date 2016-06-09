@@ -1,6 +1,6 @@
 module Romit
   class APIError < StandardError
-    MESSAGE = "Something has gone wrong"
+    MESSAGE = 'Something has gone wrong'
 
     attr_reader :message
     attr_reader :http_status

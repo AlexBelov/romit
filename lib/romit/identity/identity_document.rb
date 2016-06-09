@@ -15,7 +15,7 @@ module Romit
     end
 
     def self.create(romit_model, opts = {})
-      resp = Client.request(:post, "/identity/document", opts, MemberAccount.access_token)
+      resp = Client.request(:post, '/identity/document', opts, MemberAccount.access_token)
       resp_body = Utils.handle_response(resp)
       resp_body[:id]
     end

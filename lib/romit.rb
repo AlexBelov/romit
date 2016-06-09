@@ -2,6 +2,7 @@
 # API spec at http://docs.romit.io/
 
 require 'romit/version'
+
 require 'romit/helpers/configuration'
 require 'romit/member'
 require 'romit/oauth'

@@ -1,5 +1,5 @@
 require 'romit/base'
-require 'romit/amount'
+require 'romit/transfer/amount'
 
 module Romit
   class Refund < Base

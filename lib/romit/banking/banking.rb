@@ -7,7 +7,7 @@ module Romit
     end
 
     def list
-      resp = Client.request(:get, "/banking", {}, @member_account.access_token)
+      resp = Client.request(:get, '/banking', {}, @member_account.access_token)
       resp_body = Utils.handle_response(resp)
 
       resp_body.map do |banking|

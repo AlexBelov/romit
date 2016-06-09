@@ -9,7 +9,7 @@ module Romit
     end
 
     def self.retrieve
-      resp = Client.request(:get, "/user", {}, MemberAccount.access_token)
+      resp = Client.request(:get, '/user', {}, MemberAccount.access_token)
       resp_body = Utils.handle_response(resp)
       self.new(
         id: resp_body[:id],

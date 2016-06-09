@@ -3,7 +3,7 @@ require 'romit/banking/banking_card'
 
 module Romit
   class BankingItem < Base
-    UNIMPLEMENTED_TYPE_MESSAGE = "Sorry, this type is not implemented yet"
+    UNIMPLEMENTED_TYPE_MESSAGE = 'Sorry, this type is not implemented yet'
 
     def retrieve
       case @values[:type]

@@ -19,7 +19,7 @@ module Romit
       begin
         resp[:response]
       rescue
-        raise APIError.new("Romit response is empty")
+        raise APIError.new('Romit response is empty')
       end
     end
   end

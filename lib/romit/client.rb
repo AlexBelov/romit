@@ -26,9 +26,9 @@ module Romit
           payload: params.to_json, open_timeout: Romit.open_timeout, timeout: Romit.read_timeout
         )
       rescue RestClient::ResourceNotFound
-        raise APIError.new("API endpoint is incorrect")
+        raise APIError.new('API endpoint is incorrect')
       rescue
-        raise APIError.new("Seems like your token is expired or incorrect")
+        raise APIError.new('Seems like your token is expired or incorrect')
       end
     end
 
@@ -40,9 +40,9 @@ module Romit
       begin
         JSON.parse(response.body, symbolize_names: true)
       rescue NoMethodError
-        raise APIError.new("Romit response is empty")
+        raise APIError.new('Romit response is empty')
       rescue JSON::ParserError
-        raise APIError.new("Romit returned incorrect JSON")
+        raise APIError.new('Romit returned incorrect JSON')
       end
     end
   end

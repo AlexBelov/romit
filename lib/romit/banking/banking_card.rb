@@ -20,7 +20,7 @@ module Romit
     end
 
     def create(opts = {})
-      resp = Client.request(:post, "/banking/card", opts, @member_account.access_token)
+      resp = Client.request(:post, '/banking/card', opts, @member_account.access_token)
       resp_body = Utils.handle_response(resp)
       BankingItem.new(
         id: resp_body[:id]
