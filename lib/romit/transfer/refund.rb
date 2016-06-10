@@ -6,20 +6,7 @@ module Romit
     attr_reader :values
 
     def initialize(opts)
-      if opts.nil? || opts.empty?
-        @values = {}
-      else
-        @values = {
-          refund_amount: Amount.new(
-            currency: opts[:refundAmount][:currency],
-            value: opts[:refundAmount][:value]
-          ),
-          reimburse_amount: Amount.new(
-            currency: opts[:reimburseAmount][:currency],
-            value: opts[:reimburseAmount][:value]
-          )
-        }
-      end
+      @values = opts.nil? || opts.empty? ? {} : refund_params(opts)
     end
 
     def refund_amount
@@ -28,6 +15,21 @@ module Romit
 
     def reimburse_amount
       @values[:reimburse_amount]
+    end
+
+    private
+
+    def refund_params(opts)
+      {
+        refund_amount: Amount.new(
+          currency: opts[:refundAmount][:currency],
+          value: opts[:refundAmount][:value]
+        ),
+        reimburse_amount: Amount.new(
+          currency: opts[:reimburseAmount][:currency],
+          value: opts[:reimburseAmount][:value]
+        )
+      }
     end
   end
 end

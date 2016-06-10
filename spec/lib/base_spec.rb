@@ -2,15 +2,15 @@ require 'spec_helper'
 require 'romit/base'
 
 describe Romit::Base do
-  HASH = {a: 1, b: 2}
-  subject { Romit::Base.new(:member_account, HASH) }
+  hash = { a: 1, b: 2 }
+  subject { Romit::Base.new(:member_account, hash) }
 
   it 'reload to_hash method' do
-    assert_equal subject.to_hash, HASH
+    assert_equal subject.to_hash, hash
   end
 
   it 'reload [] method' do
-    assert_equal subject[:a], HASH[:a]
+    assert_equal subject[:a], hash[:a]
   end
 
   it 'reload []= method' do
@@ -19,11 +19,11 @@ describe Romit::Base do
   end
 
   it 'return hash keys' do
-    assert_equal subject.keys, HASH.keys
+    assert_equal subject.keys, hash.keys
   end
 
   it 'return hash values' do
-    assert_equal subject.values, HASH.values
+    assert_equal subject.values, hash.values
   end
 
   it 'redefines empty? method' do

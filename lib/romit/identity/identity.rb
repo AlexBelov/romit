@@ -1,10 +1,10 @@
 module Romit
   class Identity < Base
     def self.list
-      resp = Client.request(:get, '/identity', {}, MemberAccount.access_token)
+      resp = Client.request(:get, '/identity', {}, @member_account.access_token)
       resp_body = Utils.handle_response(resp)
       resp_body.map do |identity|
-        self.new(
+        new(
           id: identity[:id],
           type: Utils.parse_enum(identity[:type]),
           created_at: Utils.parse_epoch(identity[:created])

@@ -13,14 +13,22 @@ module Romit
     end
 
     def self.handle_response(resp)
-      if resp && !resp[:success]
-        raise APIError.new(resp[:error])
-      end
+      raise(APIError, resp[:error]) if resp && !resp[:success]
       begin
         resp[:response]
       rescue
-        raise APIError.new('Romit response is empty')
+        raise APIError, 'Romit response is empty'
       end
+    end
+
+    def self.handle_token(name, resp_body, client = false)
+      Token.new(
+        type: client ? :client_token : name.to_sym,
+        token: resp_body[name.to_sym],
+        expires: parse_timestamp(
+          resp_body["#{name}_expires".to_sym]
+        )
+      )
     end
   end
 end

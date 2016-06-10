@@ -11,16 +11,19 @@ module Romit
       resp_body = Utils.handle_response(resp)
 
       resp_body.map do |banking|
-        BankingItem.new(
-          @member_account,
-          {
-            id: banking[:id],
-            type: Utils.parse_enum(banking[:type]),
-            status: Utils.parse_enum(banking[:status]),
-            created_at: Utils.parse_epoch(banking[:created])
-          }
-        )
+        BankingItem.new(@member_account, bank_item_params(banking))
       end
+    end
+
+    private
+
+    def bank_item_params(banking)
+      {
+        id: banking[:id],
+        type: Utils.parse_enum(banking[:type]),
+        status: Utils.parse_enum(banking[:status]),
+        created_at: Utils.parse_epoch(banking[:created])
+      }
     end
   end
 end

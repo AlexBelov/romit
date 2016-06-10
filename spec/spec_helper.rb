@@ -21,12 +21,14 @@ VCR.configure do |config|
   config.hook_into :webmock
 end
 
-class Minitest::Test
-  parallelize_me!
+module Minitest
+  class Test
+    parallelize_me!
+  end
 end
 
 module Kernel
-  alias_method :context, :describe
+  alias context describe
 end
 
 require 'example_token'

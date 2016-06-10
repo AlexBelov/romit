@@ -2,7 +2,7 @@ require 'romit/helpers/member_account'
 require 'romit/banking/banking'
 require 'romit/transfer/transfer'
 require 'romit/identity/identity'
-require 'romit/user'
+require 'romit/user/user'
 
 module Romit
   class Member

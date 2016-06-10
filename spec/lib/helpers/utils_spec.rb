@@ -19,7 +19,7 @@ describe Romit::Utils do
     it 'raises exception if romit returned error' do
       error = 'Error!'
       err = assert_raises Romit::APIError do
-        subject.handle_response({success: false, error: error})
+        subject.handle_response(success: false, error: error)
       end
       assert_equal err.message, error
     end

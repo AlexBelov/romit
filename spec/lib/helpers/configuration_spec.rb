@@ -10,8 +10,10 @@ describe Romit::Configuration do
   end
 
   it 'defines class variables with curresponding default values' do
-    assert_equal ExtendableClass.class_variables,
+    assert_equal(
+      ExtendableClass.class_variables,
       [:@@simple_setting, :@@setting_with_default]
+    )
   end
 
   it 'defines reader methods for extended class' do

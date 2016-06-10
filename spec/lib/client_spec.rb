@@ -18,7 +18,9 @@ describe Romit::Client do
     it 'raise exception if api endpoint is incorrect' do
       VCR.use_cassette('incorrect_api_endpoint') do
         assert_raises Romit::APIError do
-          subject.execute_request(:get, '/incorrect_path', {}, token.romit_access_token)
+          subject.execute_request(
+            :get, '/incorrect_path', {}, token.romit_access_token
+          )
         end
       end
     end

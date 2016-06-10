@@ -8,10 +8,12 @@ module Romit
       %i(not_submitted submitted approved denied)
     end
 
+    # rubocop:disable MethodLength
+    # rubocop:disable Metrics/AbcSize
     def self.retrieve
       resp = Client.request(:get, '/user', {}, MemberAccount.access_token)
       resp_body = Utils.handle_response(resp)
-      self.new(
+      new(
         id: resp_body[:id],
         phone: resp_body[:phone],
         email: resp_body[:email],

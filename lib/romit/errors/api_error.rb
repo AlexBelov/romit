@@ -1,13 +1,14 @@
 module Romit
   class APIError < StandardError
-    MESSAGE = 'Something has gone wrong'
+    MESSAGE = 'Something has gone wrong'.freeze
 
     attr_reader :message
     attr_reader :http_status
     attr_reader :http_body
     attr_reader :json_body
 
-    def initialize(message=nil, http_status=nil, http_body=nil, json_body=nil)
+    def initialize(message = nil, http_status = nil,
+                   http_body = nil, json_body = nil)
       @message = message.nil? || message.empty? ? MESSAGE : message
       @http_status = http_status
       @http_body = http_body
@@ -15,7 +16,7 @@ module Romit
     end
 
     def to_s
-      status_string = @http_status.nil? ? "" : "(Status #{@http_status}) "
+      status_string = @http_status.nil? ? '' : "(Status #{@http_status}) "
       "#{status_string}#{@message}"
     end
   end

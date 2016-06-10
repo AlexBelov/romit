@@ -5,7 +5,7 @@ describe Romit::BankingCard do
   subject { Romit::BankingCard.new(MEMBER_ACCOUNT) }
 
   it 'creates banking card' do
-    card_opts =  {
+    card_opts = {
       name: 'Chadd Sexington',
       number: '4556899287487842',
       month: 9,
