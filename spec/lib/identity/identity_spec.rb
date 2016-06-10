@@ -15,7 +15,7 @@ describe Romit::Identity do
 
   context 'create_document' do
     it 'returns IdentityItem' do
-      image_file = File.open("spec/test_files/driver_license.jpg", "rb").read
+      image_file = File.open('spec/test_files/driver_license.jpg', 'rb').read
       base64_image = Base64.encode64(image_file)
       opts = {
         file: base64_image,
