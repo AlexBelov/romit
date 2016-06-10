@@ -4,6 +4,7 @@
 [![Code Climate](https://codeclimate.com/github/AlexBelov/romit/badges/gpa.svg)](https://codeclimate.com/github/AlexBelov/romit)
 [![Test Coverage](https://codeclimate.com/github/AlexBelov/romit/badges/coverage.svg)](https://codeclimate.com/github/AlexBelov/romit/coverage)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c581319e3a2482eac5f445b89c0b50c)](https://www.codacy.com/app/git_11/romit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlexBelov/romit&amp;utm_campaign=Badge_Grade)
+[![Gem Version](https://badge.fury.io/rb/romit.svg)](https://badge.fury.io/rb/romit)
 
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/romit`. To experiment with that code, run `bin/console` for an interactive prompt.
 
