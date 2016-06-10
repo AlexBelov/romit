@@ -3,6 +3,7 @@ require 'romit/banking/banking'
 require 'romit/transfer/transfer'
 require 'romit/identity/identity'
 require 'romit/user/user'
+require 'romit/user/public_user'
 
 module Romit
   class Member
@@ -25,11 +26,15 @@ module Romit
     end
 
     def identity
-      Identity
+      Identity.new(@member_account)
     end
 
     def user
-      User
+      User.new(@member_account)
+    end
+
+    def public_user
+      PublicUser
     end
   end
 end

@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sandbox.romit.io/v1/user
+    body:
+      encoding: UTF-8
+      string: '{"phone":"+11122334455","email":"2bbe59@example.com","first":"FirstName","last":"LastName"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 1cf84927-620c-4288-8491-842173fc6ec0
+      Content-Length:
+      - '91'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 10 Jun 2016 11:52:32 GMT
+      Content-Length:
+      - '474'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"error":null,"response":{"access_token":"8bfd9b17-19f8-4f4b-85e6-32f6eb0c9139","access_token_expires":"2016-06-10T12:52:34Z","refresh_token":"396daa06-c78e-42e9-a8a7-648859def337","refresh_token_expires":"2016-08-09T11:52:34Z","token_type":"bearer","scope":["DEFAULT","BANKING_READ","BANKING_WRITE","IDENTITY_READ","IDENTITY_WRITE","TRANSFER_READ","TRANSFER_WRITE","USER_READ","USER_WRITE","PLAN_READ","PLAN_WRITE","SUBSCRIPTION_READ","SUBSCRIPTION_WRITE"]}}'
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 11:52:36 GMT
+recorded_with: VCR 3.0.3

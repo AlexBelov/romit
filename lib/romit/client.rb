@@ -1,6 +1,7 @@
 require 'rest-client'
 require 'json'
 require 'romit/errors/api_error'
+require 'benchmark'
 
 module Romit
   module Client
@@ -20,15 +21,20 @@ module Romit
       parse(response)
     end
 
+    # rubocop:disable MethodLength
     def self.execute_request(method, url, params = {}, access_token = nil)
       api_base_url = Romit.api_base
       absolute_url = api_url(url, api_base_url)
       begin
-        execute_rest_client_request(access_token, method, absolute_url, params)
+        execute_rest_client_request(
+          access_token, method, absolute_url, params
+        )
       rescue RestClient::ResourceNotFound
         raise APIError, 'API endpoint is incorrect'
-      rescue
-        raise APIError, 'Seems like your token is expired or incorrect'
+      rescue => e
+        message = error_message(e)
+        default_message = 'Seems like your token is expired or incorrect'
+        raise APIError, message.empty? ? default_message : message
       end
     end
 
@@ -45,14 +51,25 @@ module Romit
     end
 
     def self.execute_rest_client_request(access_token, method, url, params)
-      RestClient::Request.execute(
-        headers: request_headers(access_token),
-        method: method,
-        url: url,
-        payload: params.to_json,
-        open_timeout: Romit.open_timeout,
-        timeout: Romit.read_timeout
-      )
+      response = nil
+      time = Benchmark.realtime do
+        response = RestClient::Request.execute(
+          headers: request_headers(access_token),
+          method: method,
+          url: url,
+          payload: params.to_json,
+          open_timeout: Romit.open_timeout,
+          timeout: Romit.read_timeout
+        )
+      end
+      puts "Romit API: #{format('%.2f', time)}s" if Romit.show_time
+      response
+    end
+
+    def self.error_message(e)
+      parse(e.response)[:error][:message]
+    rescue
+      ''
     end
   end
 end

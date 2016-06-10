@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sandbox.romit.io/v1/oauth/token
+    body:
+      encoding: UTF-8
+      string: '{"client_id":"***REMOVED***","client_secret":"***REMOVED***","grant_type":"client_credentials"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '141'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 10 Jun 2016 11:44:13 GMT
+      Content-Length:
+      - '142'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"error":null,"response":{"access_token":"1cf84927-620c-4288-8491-842173fc6ec0","access_token_expires":"2016-06-10T12:44:14Z"}}'
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 11:44:14 GMT
+recorded_with: VCR 3.0.3

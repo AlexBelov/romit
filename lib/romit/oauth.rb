@@ -2,6 +2,11 @@ require 'romit/token'
 
 module Romit
   module OAuth
+    SANDBOX_AUTH = 'auth.sandbox.romit.io'.freeze
+    LIVE_AUTH = 'auth.romit.io'.freeze
+    SCOPES = %w(DEFAULT BANKING_READ BANKING_WRITE IDENTITY_READ IDENTITY_WRITE
+                TRANSFER_READ TRANSFER_WRITE USER_READ USER_WRITE).freeze
+
     def self.client_access_token
       params = {
         client_id: Romit.client_id,
@@ -14,12 +19,11 @@ module Romit
     end
 
     def self.request_user_authorization_link(redirect_uri, scopes, state)
-      scopes = 'DEFAULT|BANKING_READ|BANKING_WRITE|IDENTITY_READ|\
-               IDENTITY_WRITE|TRANSFER_READ|TRANSFER_WRITE|USER_READ|\
-               USER_WRITE' if scopes.empty?
-      "https://#{auth_url}/#/app/authorize?client_id=#{Romit.client_id}\
-      &response_type=code&redirect_uri=#{redirect_uri}&scope=#{scopes}\
-      &state=#{state}"
+      scopes = SCOPES.join('|') if scopes.empty?
+      "https://#{auth_url(Romit.api_base)}/#/app/authorize?"\
+      "client_id=#{Romit.client_id}"\
+      "&response_type=code&redirect_uri=#{redirect_uri}&scope=#{scopes}"\
+      "&state=#{state}"
     end
 
     def self.finish_user_authorization(redirect_uri, code)
@@ -56,11 +60,11 @@ module Romit
       }
     end
 
-    def self.auth_url
-      if Romit.api_base.include?('sandbox')
-        'auth.sandbox.romit.io'
+    def self.auth_url(api_base)
+      if api_base.include?('sandbox')
+        SANDBOX_AUTH
       else
-        'auth.romit.io'
+        LIVE_AUTH
       end
     end
   end

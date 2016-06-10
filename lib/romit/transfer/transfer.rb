@@ -1,5 +1,5 @@
 require 'romit/client'
-require 'romit/helpers/utils'
+require 'romit/transfer/amount'
 require 'romit/transfer/refund'
 require 'romit/transfer/transfer_item'
 
@@ -25,9 +25,10 @@ module Romit
       handle_transfer(resp_body)
     end
 
-    def make_refund(id)
+    def make_refund(id, opts = {})
+      params = { id: id }.merge(opts)
       resp = Client.request(
-        :delete, "/transfer/refund/#{id}", {}, @member_account.access_token
+        :post, '/transfer/refund', params, @member_account.access_token
       )
       Utils.handle_response(resp)
       true

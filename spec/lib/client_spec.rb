@@ -46,4 +46,10 @@ describe Romit::Client do
       end
     end
   end
+
+  context 'error_message' do
+    it 'returns empty string if resp is empty' do
+      assert_equal subject.error_message(nil), ''
+    end
+  end
 end

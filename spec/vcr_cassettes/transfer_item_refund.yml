@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.sandbox.romit.io/v1/transfer/refund
+    body:
+      encoding: UTF-8
+      string: '{"id":"385e07f2-db0b-4726-9e19-07935e87bbfb"}'
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 4f050a0f-6b01-409e-8d0a-0aace2dec312
+      Content-Length:
+      - '45'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 10 Jun 2016 14:12:22 GMT
+      Content-Length:
+      - '43'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"error":null,"response":{}}'
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 14:12:27 GMT
+recorded_with: VCR 3.0.3

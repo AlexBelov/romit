@@ -1,0 +1,78 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.sandbox.romit.io/v1/transfer
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 4f050a0f-6b01-409e-8d0a-0aace2dec312
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 10 Jun 2016 13:31:47 GMT
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '1496'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAO2aTY8cxw2G/0pjTjGgElhFskjqJjh7yMGBYctAgiCH+gwW
+        0c4as7tBDEH/PWxJCXaEHKRGH2y4L4udmerpKj7Fly+r593p4am18fBwevV4
+        eRovTuNyub+cXp2f3r59cbqMh5/vzw/j9Opv7063/fTqpD0nrKOGmAkC9TZC
+        5dSDgvTaIVmycnpxmpf7Ox9t2hCTUrDJIxCmGgpECKmKtUFRsa6jH+/Xb042
+        RbKFjJgDVZvBaq5BpyJEmWagPrb+4mN/uL+7fVx+LOde7/+9/PTjH5fvL/fr
+        Km7P//h099d390/nx9Ord6f2dLmMc1uv85H+8b/K2ydf0glfApzer7f/gsHp
+        pco6uJbzP/0uf1qD0bA0kgEht8KBZmqhEtaAVtrsuVRR86+4G3frAr8b/baV
+        t8vN+pXl8fb+vPzhzaWcH0r78IKI4pJFbBEV+GaNyy8/r7f+/vVfv7v58xt/
+        4+GxPD45qtPNX26+/enNzTrBy5hP5/5fYu0yyuPwl5FyxGiZDQDev/iED326
+        qVoKIhQDgZVgrUCowMYlxzZK+63gy/lr+GWnjZ8DHJBlVEk+3+jhqFCCL80C
+        ZhjWfNXTxpcDFEtp8XjHxdTkqwG++/Tf1yz9Mm7v6tPlYXzBRfEl2nrNx9V8
+        3C7/m8+3P9y8/jidqx0EFo3gww76/ANA0udbq1muvO4OzcNjGddYluYagSUB
+        rqOn/o62Viu1ymgz5FhnoKYzaOHkq+TJpDHWUr98ayUUXFhSXFSQdtAGIPM5
+        yHOAiTLj0BKajuLagBxqExc3bgapgxr8ZqT91weQ1JboaeAKn3gngOA69Qyg
+        z9OzFT35kC3QCqemqqEai400u8k8AG4EKAy8qJktEDPuA1BM8Ko6Kw+QmUKv
+        UANJysFGtABiyEOl1lkPgBsBRnWAiKhLhhT3AYiarjOwlNbA/YQW8gzMxsGy
+        S2iC2VRIwBIeADcCBMq6uKPN/kd2ykAU4ucAxaVTjNemZmpwR25Bx7DQpCag
+        jiPLAXArQIwOEA3z4u5wpxro+XyVgRWIpE0XzokY3KE6EiafO3TKsxBxTwfA
+        jQAzJ1yiV63FVW2vDEwCVxLqoewDZxge0uAmx4IvoQeEMXuUHGM82ojNEqog
+        nnxRFkHbqY3A5AF/BrDg5JIsBxF0CfXewWsg9+DFMHtp7MgsB8CtABPZwu4M
+        F1KyXQBqZLnqA2k0q1x7gMjuQjW1oNJSqMggGKt3h3YA3AjQBOLCmfIiGfNO
+        ACletRG1Nq+0mUKe1ZtBHdkbeecSe6k9qkBKv6dDvn0BajZdgL0GJsV92giN
+        mK4kVGt2mbS2qmcKxHMEXSmiFY/zJGocD4AbAbrDp8WU0Ath2sfEaEx8LaG+
+        N6hyDKNQ8RknDQqRwqA0dVTzQnicxGw+icFsCyXPQLK0l4RGSc8Bms48E/Vg
+        qt1dqHCoiVtoVTTFpjnpYWI2Syi6ASV2E2MqX/+c5P8DBLwCGKmBcYXAZOQ1
+        MMegKCVwM47JIlU6AG5u5MHAu3nGxavUThnotK4lNI46+3r+UiCvTyq9Bk4o
+        AVpHbASakQ+AW59GeC54GmJ2P8p7PGpeAebPJJSnIY31AM3ZedNZgkbTgILO
+        sc8JfDxO2gqQwU2Mokb3o7xPBuZketVGcC9uNCW57TQ3MblzMMs9RJyVHIs4
+        7wPg1kZeYlrAjBYC2seF5iR21UZkVIowc1CH5wCphlq8m48uplMicNTjLHRz
+        BmaxRcnMCyHuBTBfPw8E5tx8ysGoWKBSySMsLfQmnHmwxXkA3P6TisQLp5Q9
+        DfM+R2nZ2/grgFI7fTiJSba6UAb1MDfnWQCqN/LgmnsA3JqBBLhElbhEV7p9
+        AEbPuCsJpQRZ2SV0yFxNTA91DqfYlUeEJEWPk5jNjXyM7l/8soUj7NMH5oj5
+        CiCV6TbGhTMicSDyCJfJNUjjXqOL+CjjALi1DxTvIHytspgbjZ0AwsdfrP79
+        /X8A31txHZssAAA=
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 13:31:47 GMT
+recorded_with: VCR 3.0.3

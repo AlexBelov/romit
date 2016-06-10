@@ -1,11 +1,13 @@
+require 'romit/user/user_item'
+
 module Romit
-  class PublicUser < Base
-    def self.get(phone)
+  class PublicUser
+    def self.get(client_token, phone)
       resp = Client.request(
-        :get, "/user/#{phone}", {}, MemberAccount.access_token
+        :get, "/user/#{phone}", {}, client_token
       )
       resp_body = Romit::Utils.handle_response(resp)
-      new(
+      UserItem.new(
         level: resp_body[:level],
         type: Romit::Utils.parse_enum(resp_body[:type]),
         business_name: resp_body[:businessName]

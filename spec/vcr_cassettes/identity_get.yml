@@ -1,0 +1,103 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.sandbox.romit.io/v1/identity
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer aa6a3cad-3c98-4d06-a0e3-6a38056e8d75
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 10 Jun 2016 14:43:50 GMT
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '425'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAI3Tu4pbMRAG4HdR7QHNTdK4zaZM0iRVSKHLCALL7nJsF2HZ
+        d49MUtiVj4pBCOZjGH69h9Oldz+dwvG8XfwQfNtet3B8uTw/H8Lmp7fXl5OH
+        48/38HuEY4iS2kgkwFMdJHaH6kUAreNoyNlnDodw/vO2msLTt08/vnz++n29
+        9M3r2ReBkmLkKCWu83H472qUkWW5Q7WANK7QnBRqTZKJY6/cd7lMdutSotFS
+        w0UmXUUNqhUFK41Sr7XI4B0urZ506zJ3mz0N4MK83FmgENLVRZlpqiZ95KqV
+        khLqrZu8GDMOkNGvZd0atwQk5r1TRTd67CqWTHduld5NmdaU2kCmVSje/HpD
+        zIo8Y9rlqvGtO8yK4NK6Yb3moUBL3oAmpk6e2fnhfq8uscqt22KtmOdyHQ1E
+        eoMyF56TUc1TeajscVH1LmcSp1etFSbL2sMQhirUgYx0pjp0jbzHjRjp1p3T
+        IioL1FbWvJ4QLK8f0orP1DrnOXfkgTmtAN/lV6zYnAhj2lzzOkLJZYXNWhNq
+        4j7aDpeK/NvDr4+/b7Mxd/IDAAA=
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 14:43:51 GMT
+- request:
+    method: get
+    uri: https://api.sandbox.romit.io/v1/identity/document/046bd624-3f5e-40ce-ae84-19c1db137ef7
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer aa6a3cad-3c98-4d06-a0e3-6a38056e8d75
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Encoding:
+      - gzip
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 10 Jun 2016 14:43:52 GMT
+      Vary:
+      - Accept-Encoding
+      Content-Length:
+      - '324'
+      Connection:
+      - keep-alive
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAEWPS2+CQBhF/8skdcXIvHgMiWlIJRZNm7Ta2HTTDMOHJSLg
+        DLQ+4n8v2kXv+p57c87I9lqDtSjqTA8OAmMag6K6ryoHGbBtU1tA0RmVOYoQ
+        EX6W+0xgXniABdGAFYQCU6lpnlEeQBEgB/WmuiLfquoHFn11XWsj17WqzrPm
+        kKl621sweaPt2PKx2qlTU6sfO9bNzpWh5pwNm/J2wVmGFaEEsyyQGgQNeaZc
+        wkUWUMlwoaTAAjyOQ18B9nIitQiBUcbv4/Uyvrkt4Jjmk3iRxvOPdLry3x+9
+        2Zqt5k/xKDm05WA5ocL3vIAPd6NlualV1xuYFCpkbbxR8Z7u36Q/809NUJzK
+        apu83PHp4Al/NIr+cSHExUHdsb2Kz5Ln5DV9+EyvZW1AdZDfyoRwIkIy5HL5
+        BZ2QbaaDAQAA
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 14:43:52 GMT
+recorded_with: VCR 3.0.3

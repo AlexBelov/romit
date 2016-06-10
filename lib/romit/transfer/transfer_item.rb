@@ -2,10 +2,10 @@ require 'romit/base'
 
 module Romit
   class TransferItem < Base
-    def make_refund
-      endpoint = "/transfer/refund/#{@values[:id]}"
+    def make_refund(opts = {})
+      params = { id: @values[:id] }.merge(opts)
       resp = Client.request(
-        :delete, endpoint, {}, @member_account.access_token
+        :post, '/transfer/refund', params, @member_account.access_token
       )
       Utils.handle_response(resp)
       true

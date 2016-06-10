@@ -5,8 +5,8 @@ class ExampleToken
   attr_accessor :romit_access_token_expires, :romit_refresh_token_expires
 
   def initialize
-    @romit_access_token = '702ce369-9d63-43f4-b97e-ca7f662d16be'
-    @romit_refresh_token = 'd776a374-aefc-459b-bfc8-b933a75c62bf'
+    @romit_access_token = 'aa6a3cad-3c98-4d06-a0e3-6a38056e8d75'
+    @romit_refresh_token = 'dfccee68-7007-42bb-91b6-e6cc752d79d9'
     @romit_access_token_expires = Time.now + 3600
     @romit_refresh_token_expires = Time.now + 3600
   end

@@ -1,0 +1,40 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.sandbox.romit.io/v1/user
+    body:
+      encoding: UTF-8
+      string: "{}"
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Type:
+      - application/json
+      Authorization:
+      - Bearer 4336f67b-f60d-44be-a83c-8b8e37ac17f4
+      Content-Length:
+      - '2'
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json
+      Date:
+      - Fri, 10 Jun 2016 11:17:20 GMT
+      Content-Length:
+      - '245'
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"success":true,"error":null,"response":{"id":"98c33284-9f5e-432b-a010-2b79ce4183ba","phone":"+19493566230","email":"collinm123@gmail.com","first":"Collin","last":"Mann","type":"INDIVIDUAL","status":"APPROVED","level":1,"created":1458774931000}}'
+    http_version: 
+  recorded_at: Fri, 10 Jun 2016 11:17:20 GMT
+recorded_with: VCR 3.0.3

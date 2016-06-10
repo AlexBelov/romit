@@ -25,10 +25,14 @@ describe Romit::Member do
   end
 
   it 'returns Identity' do
-    assert_equal subject.identity, Romit::Identity
+    assert_equal subject.identity.class, Romit::Identity
   end
 
   it 'returns User' do
-    assert_equal subject.user, Romit::User
+    assert_equal subject.user.class, Romit::User
+  end
+
+  it 'returns PublicUser' do
+    assert_equal subject.public_user, Romit::PublicUser
   end
 end

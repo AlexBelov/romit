@@ -1,19 +1,22 @@
+require 'romit/user/user_item'
+
 module Romit
-  class User < Base
-    def self.types
-      %i(individual business)
+  class User
+    def initialize(member_account)
+      @member_account = member_account
     end
 
-    def self.statuses
-      %i(not_submitted submitted approved denied)
+    def retrieve
+      resp = Client.request(:get, '/user', {}, @member_account.access_token)
+      resp_body = Utils.handle_response(resp)
+      UserItem.new(user_params(resp_body))
     end
+
+    private
 
     # rubocop:disable MethodLength
-    # rubocop:disable Metrics/AbcSize
-    def self.retrieve
-      resp = Client.request(:get, '/user', {}, MemberAccount.access_token)
-      resp_body = Utils.handle_response(resp)
-      new(
+    def user_params(resp_body)
+      {
         id: resp_body[:id],
         phone: resp_body[:phone],
         email: resp_body[:email],
@@ -23,7 +26,7 @@ module Romit
         status: Utils.parse_enum(resp_body[:status]),
         level: resp_body[:level],
         created_at: Utils.parse_epoch(resp_body[:created])
-      )
+      }
     end
   end
 end

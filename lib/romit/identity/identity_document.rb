@@ -1,23 +1,24 @@
 module Romit
   class IdentityDocument < Base
-    def self.get(id)
+    TYPES = %w(
+      DRIVERS_LICENSE GENERIC_ID PASSPORT VISA FACE_PICTURE_WITH_ID
+      BUSINESS_ARTICLES BUSINESS_BANK_STATEMENT BUSINESS_LICENSE
+      BUSINESS_VOIDED_CHECK BUSINESS_PROCESSING_STATEMENT
+      BUSINESS_MARKETING_MATERIALS BUSINESS_W9 BUSINESS_SIGNOR_ID
+    ).freeze
+
+    def retrieve
+      url = "/identity/document/#{@values[:id]}"
       resp = Client.request(
-        :get, "/identity/document/#{id}", {}, @member_account.access_token
+        :get, url, {}, @member_account.access_token
       )
       resp_body = Utils.handle_response(resp)
-      handle_identity_item(resp_body)
+      handle_identity_document(resp_body)
+      self
     end
 
-    def self.create(opts = {})
-      resp = Client.request(
-        :post, '/identity/document', opts, @member_account.access_token
-      )
-      resp_body = Utils.handle_response(resp)
-      resp_body[:id]
-    end
-
-    def self.handle_identity_item(resp_body)
-      new(
+    def handle_identity_document(resp_body)
+      params = {
         id: resp_body[:id],
         url: {
           value: resp_body[:url][:value],
@@ -25,7 +26,8 @@ module Romit
         },
         type: Utils.parse_enum(resp_body[:type]),
         created_at: Utils.parse_epoch(resp_body[:created])
-      )
+      }
+      @values = params
     end
   end
 end
