@@ -1,5 +1,7 @@
 ![Romit](https://dl.dropboxusercontent.com/u/36906193/websol/logo_romit.gif)
 
+[ ![Codeship Status for AlexBelov/romit](https://codeship.com/projects/88f1fd30-115b-0134-8e80-3e3a95c3b5c9/status?branch=master)](https://codeship.com/projects/157239)
+
 Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/romit`. To experiment with that code, run `bin/console` for an interactive prompt.
 
 TODO: Delete this and the text above, and describe your gem
