@@ -6,7 +6,7 @@
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c581319e3a2482eac5f445b89c0b50c)](https://www.codacy.com/app/git_11/romit?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=AlexBelov/romit&amp;utm_campaign=Badge_Grade)
 [![Gem Version](https://badge.fury.io/rb/romit.svg)](https://badge.fury.io/rb/romit)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/romit`. To experiment with that code, run `bin/console` for an interactive prompt.
+The Romit Ruby bindings provide a small SDK for convenient access to the Romit API from applications written in the Ruby language. It provides a pre-defined set of classes for API resources that initialize themselves dynamically from API responses.
 
 ## Installation
 
@@ -16,19 +16,53 @@ Add this line to your application's Gemfile:
 gem 'romit'
 ```
 
-And then execute:
+## Configuration
 
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install romit
+```ruby
+Romit.api_base = 'https://api.sandbox.romit.io/v1'
+Romit.client_key = 'your client key'
+Romit.client_secret = 'your client secret key'
+```
 
 ## Usage
 
+To start working with Romit, please define place to store Romit member's access and refresh keys. Something like this class (can be ActiveRecord model):
+
+```ruby
+class ExampleToken
+  attr_reader :romit_access_token, :romit_refresh_token
+  attr_accessor :romit_access_token_expires, :romit_refresh_token_expires
+
+  def save_access_token(token)
+    # saving access_token and expiration to database
+    # token structure:
+    # {
+    #   type: token_type,
+    #   token: 'token',
+    #   expires: date
+    # }
+  end
+
+  def save_refresh_token(token)
+    #saving refresh_token and expiration to database
+  end
+end
+```
+
+Then you're able to make Romit requests:
+
+```ruby
+romit = Romit::Member.new(your_model)
+romit.transfer.list
+romit.banking.list
+romit.user.retrieve
+```
+
+And so on, check [Romit API docs](http://docs.romit.io/)
+
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/romit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/AlexBelov/romit. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 
 ## License
