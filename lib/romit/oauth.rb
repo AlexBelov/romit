@@ -2,8 +2,6 @@ require 'romit/token'
 
 module Romit
   module OAuth
-    SANDBOX_AUTH = 'auth.sandbox.romit.io'.freeze
-    LIVE_AUTH = 'auth.romit.io'.freeze
     SCOPES = %w(DEFAULT BANKING_READ BANKING_WRITE IDENTITY_READ IDENTITY_WRITE
                 TRANSFER_READ TRANSFER_WRITE USER_READ USER_WRITE).freeze
 
@@ -18,12 +16,25 @@ module Romit
       Utils.handle_token(:access_token, resp_body, true)
     end
 
-    def self.request_user_authorization_link(redirect_uri, scopes, state)
-      scopes = SCOPES.join('|') if scopes.empty?
-      "https://#{auth_url(Romit.api_base)}/#/app/authorize?"\
-      "client_id=#{Romit.client_id}"\
-      "&response_type=code&redirect_uri=#{redirect_uri}&scope=#{scopes}"\
-      "&state=#{state}"
+    # rubocop:disable MethodLength
+    def self.request_user_authorization(client_token, params)
+      opts = {
+        client_id: Romit.client_id,
+        response_type: 'code',
+        redirect_uri: params[:redirect_uri],
+        scope: params[:scopes] || SCOPES,
+        state: params[:state],
+        phone: params[:phone],
+        email: params[:email],
+        first: params[:first],
+        last: params[:last],
+        currency: 'USD',
+        refresh: params[:refresh],
+        call: params[:call]
+      }
+      resp = Client.request(:post, '/oauth', opts, client_token)
+
+      Utils.handle_auth_response(resp)
     end
 
     def self.finish_user_authorization(redirect_uri, code)
@@ -58,14 +69,6 @@ module Romit
         access_token: Utils.handle_token(:access_token, resp_body),
         refresh_token: Utils.handle_token(:refresh_token, resp_body)
       }
-    end
-
-    def self.auth_url(api_base)
-      if api_base.include?('sandbox')
-        SANDBOX_AUTH
-      else
-        LIVE_AUTH
-      end
     end
   end
 end

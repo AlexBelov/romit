@@ -31,8 +31,4 @@ describe Romit::Member do
   it 'returns User' do
     assert_equal subject.user.class, Romit::User
   end
-
-  it 'returns PublicUser' do
-    assert_equal subject.public_user, Romit::PublicUser
-  end
 end

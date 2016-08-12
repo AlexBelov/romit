@@ -12,13 +12,26 @@ describe Romit::OAuth do
     end
   end
 
-  context 'request_user_authorization_link' do
-    it 'returns auth link' do
-      assert_includes subject.request_user_authorization_link(
-        'redirect_uri_param',
-        '',
-        'state_param'
-      ), 'redirect_uri_param', 'state_param'
+  context 'request_user_authorization' do
+    it 'return correct response' do
+      client_token = VCR.use_cassette('client_token') do
+        Romit::OAuth.client_access_token[:token]
+      end
+
+      params = {
+        redirect_uri: 'https://nugg-backend-dev.herokuapp.com/api/public/romit/auth_callback',
+        state: 'some state',
+        phone: '+19492572313',
+        email: 'first.last@example.com',
+        first: 'First',
+        last: 'Last',
+        call: false,
+        refresh: true
+      }
+
+      VCR.use_cassette('request_user_authorization') do
+        assert_equal subject.request_user_authorization(client_token, params), true
+      end
     end
   end
 
@@ -32,18 +45,6 @@ describe Romit::OAuth do
         assert_equal tokens[:access_token].class, Romit::Token
         assert_equal tokens[:refresh_token].class, Romit::Token
       end
-    end
-  end
-
-  context 'auth_url' do
-    it 'returns live auth_url' do
-      assert_equal subject.auth_url('https://api.romit.io/v1'),
-                   subject::LIVE_AUTH
-    end
-
-    it 'returns sandbox auth_url' do
-      assert_equal subject.auth_url('https://api.sandbox.romit.io/v1'),
-                   subject::SANDBOX_AUTH
     end
   end
 end

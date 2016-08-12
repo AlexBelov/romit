@@ -21,6 +21,15 @@ module Romit
       end
     end
 
+    def self.handle_auth_response(resp)
+      raise(APIError, resp[:error]) if resp && !resp[:success]
+      begin
+        resp[:success]
+      rescue
+        raise APIError, 'Romit response is empty'
+      end
+    end
+
     def self.handle_token(name, resp_body, client = false)
       Token.new(
         type: client ? :client_token : name.to_sym,
